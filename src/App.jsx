@@ -4,12 +4,18 @@ import "./App.css";
 
 function App() {
   const [counter, setCounter] = useState(0);
-  const counterFunc = (para) => {
-    para === "-"
-      ? counter <= 0
-        ? 0
-        : setCounter((value) => value - 1)
-      : setCounter((value) => value + 1);
+  // const counterFunc = (para) => {
+  //   para === "-"
+  //     ? counter <= 0
+  //       ? 0
+  //       : setCounter((value) => value - 1)
+  //     : setCounter((value) => value + 1);
+  // };
+  const addCounter = () => {
+    setCounter((prev) => prev + 1);
+  };
+  const decCounter = () => {
+    setCounter((prev) => (prev <= 0 ? 0 : prev - 1));
   };
   return (
     <>
@@ -23,9 +29,12 @@ function App() {
       <p className="text-4xl">
         Value : <span className="font-mono">{counter}</span>
       </p>
-
+      {/* 
       <Button event={() => counterFunc("+")}>+</Button>
-      <Button event={() => counterFunc("-")}>-</Button>
+      <Button event={() => counterFunc("-")}>-</Button> */}
+
+      <Button event={() => addCounter()}>+</Button>
+      <Button event={() => decCounter()}>-</Button>
     </>
   );
 }
